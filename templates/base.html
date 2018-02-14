@@ -32,13 +32,17 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/dodaj-objavo">dodaj objavo</a></li>
+                      {% if not uporabnik %}
+                      <li><a href="{{ uporabnik }}"></a></li>
+                    <li><a href="{{ url_prijave }}">Login</a></li>
+                      {% else %}
+                      <li><a href="{{ url_odjave }}">Logout</a></li>
+                      {% endif %}
                   </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
             </nav>
-
 {% if not piskotek %}
 <div class="alert alert-danger">
     please accept cookies
@@ -47,8 +51,11 @@
     </form>
 </div>
 {% endif %}
-{% block vsebina %}{% endblock vsebina %}
+
+{% block home %}{% endblock home %}
+               <div> {% block vsebina %}{% endblock vsebina %}</div>
         </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

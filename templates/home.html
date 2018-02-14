@@ -3,10 +3,25 @@
 {% block title %}Main page{% endblock title %}
 
 
- {% block vsebina %}
-<div class="jumbotron">
-    <h1>Ninja tech forum</h1>
-    <p>Welcome to ninja tech</p>
-</div>
+ {% block home %}
 
-{% endblock %}
+
+  <h2>Seznam objav</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Uporabnik</th>
+        <th>Naslov</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for objava in seznamobjav %}
+      <tr>
+        <td>{{ objava.uporabnik_email }}</td>
+        <td><a href="/prikazi-objavo/{{ objava.key.id() }}">{{ objava.naslov }}</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock home %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}objava{% endblock title %}
+
+{% block vsebina %}
+<h3>OBJAVA:</h3>
+
+
+</div>
+<div class="panel panel-default">
+      <div class="panel-heading">{{ objava.naslov }}</div>
+  <div class="panel-body">
+
+
+  </div>
+      {{ objava.vsebina }}
+        <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>cas objave</th>
+        <th>cas posodobitve </th>
+        <th>cas izbrisa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ objava.cas_objave }}</td>
+        <td>{{ objava.cas_posodobitve }}</td>
+        <td>{{ objava.cas_izbrisa }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock vsebina %}
+
+
+
