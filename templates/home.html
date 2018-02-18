@@ -10,15 +10,16 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Uporabnik</th>
-        <th>Naslov</th>
+        <th>Naslov teme</th>
+        <th>Dodal Uporabnik</th>
       </tr>
     </thead>
     <tbody>
      {% for objava in seznamobjav %}
       <tr>
+          <td><a href="/prikazi-objavo/{{ objava.key.id() }}">{{ objava.naslov }}</a></td>
         <td>{{ objava.uporabnik_email }}</td>
-        <td><a href="/prikazi-objavo/{{ objava.key.id() }}">{{ objava.naslov }}</a></td>
+
       </tr>
     {% endfor %}
     </tbody>

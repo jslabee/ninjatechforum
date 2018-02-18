@@ -31,6 +31,30 @@
     </tbody>
   </table>
 </div>
+{% for komentar in seznamkomentarjev %}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ komentar.uporabnik_email }}</h3>
+  </div>
+  <div class="panel-body">
+   {{ komentar.vsebina }}
+  </div>
+</div>
+{% endfor %}
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+            <div class="form-group">
+                <label>Komentiraj:</label>
+                <textarea name="komentar" class="form-control" rows="6" required></textarea>
+            </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
 
 {% endblock vsebina %}
 

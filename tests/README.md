@@ -4,10 +4,10 @@
 
 To run tests you need to have these Python libraries installed via PIP:
 
-    pip install nose
+    pip install n
+ose
     pip install NoseGAE
     pip install WebTest
-
 
 ## Writing tests
 
