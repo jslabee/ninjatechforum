@@ -2,10 +2,25 @@
 
 {% block title %}objava{% endblock title %}
 
+
+
+ {% block javascript %}
+<script>
+$(document).ready(function(){
+$("h3").mouseover(function(){
+let idobjave = $(
+
+};)
+$.get("/st-komentarjev/123",function(vsebina){
+console.log(vsebina)
+});
+
+
+}
+</script>
+{% endblock javascript %}
+
 {% block vsebina %}
-<h3>OBJAVA:</h3>
-
-
 </div>
 <div class="panel panel-default">
       <div class="panel-heading">{{ objava.naslov }}</div>
@@ -30,7 +45,25 @@
       </tr>
     </tbody>
   </table>
+
+
 </div>
+<div class="row">
+    <div class= "col-md-10">
+
+                    <form action="/prikazi-objavo/{{objava.key.id()}}/delete" method="post">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+                        <button class="btn btn-danger">Delete topic</button>
+                    </form>
+</div>
+<div class= "col-md-2">
+                    <form action="/subscribe/{{objava.key.id()}}" method="post">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+                        <button class="btn btn-primary">Subscribe this topic</button>
+                    </form>
+</div>
+</div>
+
 {% for komentar in seznamkomentarjev %}
 
 <div class="panel panel-default">

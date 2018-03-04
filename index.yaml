@@ -14,3 +14,8 @@ indexes:
   properties:
   - name: objava_id
   - name: cas_objave
+
+- kind: Objava
+  properties:
+  - name: izbrisano
+  - name: cas_objave

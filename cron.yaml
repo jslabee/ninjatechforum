@@ -1,0 +1,5 @@
+cron:
+-description: Izbris tem enkrat na teden
+ url: /cron/izbris-objav
+ schedule: evry sunday 3:00
+ timezone: Europe/Ljubljana

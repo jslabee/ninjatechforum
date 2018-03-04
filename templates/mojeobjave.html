@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}moji komentarji{% endblock title %}
+
+{% block vsebina %}
+
+{% for komentar in komentarji %}
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ komentar.naslov_objave }}</h3>
+  </div>
+  <div class="panel-body">
+   {{ komentar.vsebina }}
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock vsebina %}

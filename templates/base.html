@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
                 <title>
     {% block title %}{% endblock title %}
 </title>
 
     <!-- Bootstrap -->
     <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    {% block css %}{% endblock %}
+    {% block javascript %}{% endblock javascript %}
 </head>
 
         <body>
@@ -32,6 +37,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
+                      <li> <a href="/mojikomentarji">moji komentarji</a></li>
                     <li><a href="/dodaj-objavo">dodaj objavo</a></li>
                       {% if not uporabnik %}
                       <li><a href="{{ uporabnik }}"></a></li>
@@ -58,9 +64,6 @@
 
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+
 </body>
 </html>

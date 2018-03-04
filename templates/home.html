@@ -1,11 +1,44 @@
 {% extends "base.html" %}
 
 {% block title %}Main page{% endblock title %}
+{% block css %}
+<style>
+    .zelen-tekst{
+    color: green;
+    }
+</style>
+{% endblock %}
+{% block javascript %}
+<script>
+$(document).ready(function(){
+let $jumbotron = $(".jumbotron");
 
 
+
+let $klikniMeGumb = $("#klikni-me");
+$klikniMeGumb.click(function spremeniBarvo(){
+    $jumbotron.css("background-color","red");
+    $jumbotron.fadeToggle(1000);
+}
+);
+$klikniMeGumb.mouseover(function () {
+     $jumbotron.addClass("zelen-tekst");
+});
+$klikniMeGumb.mouseout(function (){
+    $jumbotron.removeClass("zelen-tekst");
+});
+});
+
+</script>
+{% endblock %}
  {% block home %}
 
+<div class="jumbotron">
+  <h1>Ninja tech forum</h1>
+  <p>Welcome to ninja tech forum</p>
 
+</div>
+<button id="klikni-me">Klikni me</button>
   <h2>Seznam objav</h2>
   <table class="table table-bordered">
     <thead>
