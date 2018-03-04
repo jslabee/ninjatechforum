@@ -45,5 +45,15 @@ class Subscribe_topic_Handler(BaseHandler):
         return self.redirect_to("main-page")
 
 
+class StKomentarjevHandler(BaseHandler):
+    def get(self, objava_id):
+        objava = Objava.get_by_id(int(objava_id))
+        seznamkomentarjev = Komentar.query(Komentar.objava_id == str(objava.key.id()))
+        return self.write(seznamkomentarjev.count())
+
+
+       # return self.write(random.randint(0, 999))
+
+
 
 

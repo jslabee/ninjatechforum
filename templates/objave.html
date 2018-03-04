@@ -5,28 +5,27 @@
 
 
  {% block javascript %}
-<script>
-$(document).ready(function(){
-$("h3").mouseover(function(){
-let idobjave = $(
+    <script>
+        $(document).ready(function () {
+            $("h2").mouseover(function () {
+                let idObjave = $(this).attr("id");
+                $.get("/st-komentarjev/"+ idObjave, function(vsebina) {
+                    console.log(vsebina);
+                    $("#st-komentarjev-" + idObjave).text(vsebina+"  komentarjev");
+                });
+            });
 
-};)
-$.get("/st-komentarjev/123",function(vsebina){
-console.log(vsebina)
-});
-
-
-}
-</script>
+        });
+    </script>
 {% endblock javascript %}
 
 {% block vsebina %}
 </div>
 <div class="panel panel-default">
-      <div class="panel-heading">{{ objava.naslov }}</div>
+     <h2 id="{{ objava.key.id() }}"><a href="/preglej-objavo/{{ objava.key.id() }}">{{ objava.naslov }}</a></h2>
   <div class="panel-body">
 
-
+<div id="st-komentarjev-{{ objava.key.id() }}"></div>
   </div>
       {{ objava.vsebina }}
         <table class="table table-bordered">
